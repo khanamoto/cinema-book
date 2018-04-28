@@ -99,5 +99,10 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-config/*
-!routes.rb
+/config/*
+!/config/routes.rb
+!/config/initializers
+!/config/locales
+
+/db/*
+!/db/migrate
