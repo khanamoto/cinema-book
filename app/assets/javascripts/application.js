@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// 以下Bootstrap用
+//= require jquery3
+//= require popper
+// bootstrap-sprockets はデバッグ用。本番では軽量な bootstrap にする
+//= require bootstrap-sprockets
