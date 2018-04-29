@@ -103,6 +103,7 @@ bower.json
 !/config/routes.rb
 !/config/initializers
 !/config/locales
+!/config/application.rb
 
 /db/*
 !/db/migrate
