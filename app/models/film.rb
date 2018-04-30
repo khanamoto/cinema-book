@@ -1,5 +1,5 @@
 class Film < ApplicationRecord
-  belong_to :users
+  belongs_to :user
   has_many :films_tags
   has_many :tags, through: :films_tags
   has_many :likes
