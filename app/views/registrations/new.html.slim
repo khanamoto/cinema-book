@@ -1,0 +1,15 @@
+.container
+  section
+    h1 Films
+    p ~見た映画を記録してシェアしよう!~
+    = image_tag 'films_logo.svg', size: '100x100'
+  = form_with local: true do |form|
+    h2 アカウント登録
+    = form.text_field :user_name, :placeholder => 'ユーザー名'
+    = form.text_field :email, :placeholder => 'メールアドレス'
+    = form.text_field :password, :placeholder => 'パスワード'
+    button 登録する
+  p
+    | アカウントをお持ちの方はこちら
+    = link_to 'ログイン', '/'
+  #copyright © 2018 Films
