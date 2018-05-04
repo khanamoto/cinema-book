@@ -1,3 +1,41 @@
-#registrations {
+// 共通（極小サイズ）
+.registrations {
   text-align: center;
+  &__description {
+    &__logotext {
+      width: 130px;
+    }
+    &__logoicon {
+      width: 80px;
+    }
+  }
+  &__form {
+    button {
+      border-radius: .125rem;
+      padding: .75rem 4rem;
+    }
+  }
+
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+    &__description {
+      &__logotext {
+        width: 210px;
+      }
+      &__logoicon {
+        width: 100px;
+      }
+    }
+    &__note {
+      font-size: .875rem;
+    }
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
 }
