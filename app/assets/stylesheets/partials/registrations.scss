@@ -1,5 +1,6 @@
 // 共通（極小サイズ）
 .registrations {
+  font-size: .875rem;
   text-align: center;
   &__description {
     &__logotext {
@@ -10,6 +11,9 @@
     }
   }
   &__form {
+    &__password-note {
+      font-size: .8rem;
+    }
     button {
       border-radius: .125rem;
       padding: .75rem 4rem;

@@ -14,15 +14,17 @@
             = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名'
             = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス'
             = form.text_field :password, :class => 'form-control', :placeholder => 'パスワード'
-            small.form-text.text-muted.text-left ※ パスワードは8～20文字の英数字と記号を使用できます
+            p.registrations__form__password-note.form-text.text-muted.text-left ※ パスワードは8～20文字の英数字と記号を使用できます
           .form-group
             .form-check
               = form.check_box :agree, { class: 'form-check-input' }
-              = form.label :invalidCheck, '利用規約に同意する', :class => 'form-check-label'
+              label for='invalidCheck' class='form-check-label'
+                a href='/terms' target='_blank' rel='noopener noreferrer' 利用規約
+                | に同意する
           button.btn.btn-primary type='button' 登録する
 
   p.registrations__note
     | アカウントをお持ちの方はこちら
     = link_to 'ログイン', '/'
 
-  .copyright.small © 2018 Films
+  .copyright © 2018 Films
