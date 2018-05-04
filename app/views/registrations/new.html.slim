@@ -8,19 +8,23 @@
   .row.justify-content-center.mb-3
     .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
       .card.bg-light.px-3.py-5.p-md-5
+
         = form_with html: { class: 'registrations__form' }, local: true do |form|
           h2.mb-3 アカウント登録
+
           .form-group
             = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名'
             = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス'
             = form.text_field :password, :class => 'form-control', :placeholder => 'パスワード'
             p.registrations__form__password-note.form-text.text-muted.text-left ※ パスワードは8～20文字の英数字と記号を使用できます
+
           .form-group
             .form-check
               = form.check_box :agree, { class: 'form-check-input' }
               label for='invalidCheck' class='form-check-label'
                 a href='/terms' target='_blank' rel='noopener noreferrer' 利用規約
                 | に同意する
+
           button.btn.btn-primary type='button' 登録する
 
   p.registrations__note
