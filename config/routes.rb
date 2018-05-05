@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get 'sessions/login'
   delete 'sessions/logout'
+
+  root to: 'timeline#index'
 end
