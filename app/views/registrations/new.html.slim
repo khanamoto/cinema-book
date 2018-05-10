@@ -18,8 +18,9 @@
             = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名'
             = form.text_field :profile_name, :class => 'form-control mb-2', :placeholder => 'ニックネーム'
             = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス'
-            = form.text_field :password, :class => 'form-control', :placeholder => 'パスワード'
-            p.registrations__form__password-note.form-text.text-muted.text-left ※ パスワードは8～20文字の英数字と記号を使用できます
+            = form.password_field :password, maxlength: 20, :class => 'form-control mb-2', :placeholder => 'パスワード'
+            = form.password_field :password_confirmation, maxlength: 20, :class => 'form-control', :placeholder => 'パスワード（確認）'
+            p.registrations__form__password-note.form-text.text-muted.text-left ※ パスワードは6文字以上で入力してください
 
           .form-group
             .form-check
