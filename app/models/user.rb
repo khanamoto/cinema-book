@@ -12,7 +12,6 @@ class User < ApplicationRecord
     format: { with: /\A[a-z]+[a-z_\d]*\z/ }
 
   validates :profile_name,
-    presence: true,
     length: { maximum: 255 }
 
   # 保存前にメールアドレスを小文字に変換する

@@ -11,8 +11,16 @@
     }
   }
   &__form {
+    .error_explanation {
+      text-align: left;
+    }
     &__password-note {
       font-size: .8rem;
+    }
+    .form-check {
+      .field_with_errors {
+        display: inline;
+      }
     }
     button {
       border-radius: .125rem;
