@@ -1,4 +1,9 @@
 class RegistrationsController < ApplicationController
+  def index
+    @user = User.new
+    render :new
+  end
+
   def new
     # フォームの器となる空のオブジェクトを生成
     @user = User.new
