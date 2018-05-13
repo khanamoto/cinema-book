@@ -1,7 +1,6 @@
 class RegistrationsController < ApplicationController
   def index
-    @user = User.new
-    render :new
+    redirect_to action: 'new'
   end
 
   def new
