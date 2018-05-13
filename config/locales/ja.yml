@@ -203,3 +203,9 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  attributes:
+    user_name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: 確認用パスワード
+    agree: 利用規約

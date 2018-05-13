@@ -18,15 +18,15 @@
                 li = message
 
           .form-group
-            = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名'
-            = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス'
-            = form.password_field :password, :class => 'form-control mb-2', :placeholder => 'パスワード'
-            = form.password_field :password_confirmation, :class => 'form-control', :placeholder => 'パスワード（確認）'
+            = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名', :required => true
+            = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス', :type => 'email', :required => true
+            = form.password_field :password, :class => 'form-control mb-2', :placeholder => 'パスワード', :required => true
+            = form.password_field :password_confirmation, :class => 'form-control', :placeholder => 'パスワード（確認）', :required => true
             / p.registrations__form__password-note.form-text.text-muted.text-left ※ パスワードは6文字以上で入力してください
 
           .form-group
             .form-check
-              = form.check_box :agree, { class: 'form-check-input' }
+              = form.check_box :agree, { class: 'form-check-input', :required => true }
               label for='invalidCheck' class='form-check-label'
                 a href='/terms' target='_blank' rel='noopener noreferrer' 利用規約
                 | に同意する
