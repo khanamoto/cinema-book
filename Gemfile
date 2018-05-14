@@ -69,3 +69,5 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem 'bcrypt'
+gem 'meta-tags'
+gem 'settingslogic'

@@ -1,9 +1,8 @@
 doctype html
 html
   head
-    title Films | 見た映画を記録してシェアしよう
+    = render partial: 'layouts/meta_tags'
     = csrf_meta_tags
-
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
