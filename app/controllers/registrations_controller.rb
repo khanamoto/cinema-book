@@ -4,6 +4,10 @@ class RegistrationsController < ApplicationController
   end
 
   def new
+    if session[:user] then
+      redirect_to :root
+    end
+
     # フォームの器となる空のオブジェクトを生成
     @user = User.new
   end

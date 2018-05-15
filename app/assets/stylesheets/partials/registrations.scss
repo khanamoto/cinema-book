@@ -9,13 +9,17 @@
     &__logoicon {
       width: 80px;
     }
+    &__text {
+      font-size: 1rem;
+    }
   }
   &__form {
     .error_explanation {
       text-align: left;
-      li {
+      ul {
         color: $danger;
         list-style: none;
+        padding: 0;
       }
     }
     .field_with_errors {
@@ -49,6 +53,9 @@
       }
       &__logoicon {
         width: 100px;
+      }
+      &__text {
+        font-size: 1.25rem;
       }
     }
     &__note {

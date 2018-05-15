@@ -1,0 +1,69 @@
+// 共通（極小サイズ）
+.sessions {
+  font-size: .875rem;
+  text-align: center;
+  &__description {
+    &__logotext {
+      width: 130px;
+    }
+    &__logoicon {
+      width: 80px;
+    }
+    &__text {
+      font-size: 1rem;
+    }
+  }
+  &__form {
+    .error_explanation {
+      text-align: left;
+      ul {
+        color: $danger;
+        list-style: none;
+        padding: 0;
+      }
+    }
+    .field_with_errors {
+      input {
+        border-color: $danger;
+      }
+    }
+    &__password-note {
+      font-size: .8rem;
+    }
+    .form-check {
+      .field_with_errors {
+        display: inline;
+      }
+    }
+    button {
+      border-radius: .125rem;
+      padding: .75rem 4rem;
+    }
+  }
+
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+    &__description {
+      &__logotext {
+        width: 210px;
+      }
+      &__logoicon {
+        width: 100px;
+      }
+      &__text {
+        font-size: 1.25rem;
+      }
+    }
+    &__note {
+      font-size: .875rem;
+    }
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
+}

@@ -5,7 +5,7 @@
     = image_tag 'films_logo.svg', class: 'registrations__description__logoicon'
     h1
       = image_tag 'films_logo_text.svg', class: 'registrations__description__logotext' ,alt: 'Films'
-    p.registrations__description__text.lead ~見た映画を記録してシェアしよう！~
+    p.registrations__description__text ~見た映画を記録してシェアしよう！~
 
   .row.justify-content-center.mb-3
     .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
@@ -16,8 +16,8 @@
           - if @user.errors.any?
             .error_explanation.mb-3
               ul
-              - @user.errors.full_messages.each do |message|
-                li = message
+                - @user.errors.full_messages.each do |message|
+                  li = message
 
           .form-group
             = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名', :required => true
@@ -36,6 +36,6 @@
 
   p.registrations__note
     | アカウントをお持ちの方はこちら
-    = link_to 'ログイン', '/'
+    = link_to 'ログイン', '/sessions/new', class: 'pl-1'
 
   .copyright © 2018 Films
