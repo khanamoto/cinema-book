@@ -2,15 +2,15 @@
 
 .registrations
   section.registrations__description.my-4
-    = image_tag 'films_logo.svg', class: 'registrations__description__logoicon'
+    = image_tag 'films_logo.svg', class: 'logo-image'
     h1
-      = image_tag 'films_logo_text.svg', class: 'registrations__description__logotext' ,alt: 'Films'
+      = image_tag 'films_logo_text.svg', class: 'logo-font' ,alt: 'Films'
     p.registrations__description__text ~見た映画を記録してシェアしよう！~
 
   .row.justify-content-center.mb-3
     .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
       .card.bg-light.px-3.py-5.p-md-5
-        = form_with model: @user, url: registrations_path, html: { class: 'registrations__form' }, local: true do |form|
+        = form_with model: @user, url: registrations_path, class: 'registrations__form', local: true do |form|
           h2.mb-3 アカウント登録
 
           - if @user.errors.any?
@@ -20,14 +20,14 @@
                   li = message
 
           .form-group
-            = form.text_field :user_name, :class => 'form-control mb-2', :placeholder => 'ユーザー名', :required => true
-            = form.text_field :email, :class => 'form-control mb-2', :placeholder => 'メールアドレス', :type => 'email', :required => true
-            = form.password_field :password, :class => 'form-control mb-2', :placeholder => 'パスワード', :required => true
-            = form.password_field :password_confirmation, :class => 'form-control', :placeholder => 'パスワード（確認）', :required => true
+            = form.text_field :user_name, class: 'form-control mb-2', placeholder: 'ユーザー名', required: true
+            = form.text_field :email, class: 'form-control mb-2', placeholder: 'メールアドレス', type: 'email', required: true
+            = form.password_field :password, class: 'form-control mb-2', placeholder: 'パスワード', required: true
+            = form.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワード（確認）', required: true
 
           .form-group
             .form-check
-              = form.check_box :agree, { class: 'form-check-input', :required => true }
+              = form.check_box :agree, class: 'form-check-input', required: true
               label for='invalidCheck' class='form-check-label'
                 a href='/terms' target='_blank' rel='noopener noreferrer' 利用規約
                 | に同意する

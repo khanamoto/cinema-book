@@ -3,10 +3,10 @@
   font-size: .875rem;
   text-align: center;
   &__description {
-    &__logotext {
+    .logo-font {
       width: 130px;
     }
-    &__logoicon {
+    .logo-image {
       width: 80px;
     }
     &__text {
@@ -48,10 +48,10 @@
   // タブレットサイズ（768px以上）
   @include media-breakpoint-up(md) {
     &__description {
-      &__logotext {
+      .logo-font {
         width: 210px;
       }
-      &__logoicon {
+      .logo-image {
         width: 100px;
       }
       &__text {

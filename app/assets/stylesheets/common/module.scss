@@ -5,9 +5,7 @@
 // ヘッダー ---------------------
 .global-header {
   .logo-image {
-    img {
-      width: 50px;
-    }
+    width: 50px;
   }
   &__search {
     position: relative;
@@ -23,6 +21,7 @@
     }
   }
 }
+
 // フッター ---------------------
 .copyright {
   font-size: 12px;
