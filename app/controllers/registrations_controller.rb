@@ -1,4 +1,6 @@
 class RegistrationsController < ApplicationController
+  layout 'index'
+
   def index
     redirect_to action: 'new'
   end

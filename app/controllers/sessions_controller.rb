@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'index'
+
   def new
     if session[:user] then
       redirect_to :root

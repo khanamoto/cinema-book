@@ -3,8 +3,43 @@ html
   head
     = render partial: 'layouts/meta_tags'
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
   body
-    = yield
+    header.global-header.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
+      .container
+        = link_to '/', class: 'logo-image navbar-brand'
+          = image_tag 'films_logo.svg', class: ''
+
+        button.navbar-toggler type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='ナビゲーションの切替'
+          = icon('fas', 'bars')
+
+        .row.justify-content-end
+          = form_with url: '/', method: :get, class: 'global-header__search form-inline mr-2', local: true do |form|
+            = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
+            button.btn.btn-outline-success type='submit'
+              = icon('fas', 'search')
+
+          .global-header__nav.collapse.navbar-collapse#navbarNav
+            ul.navbar-nav
+              li.nav-item
+                = link_to '/', class: 'nav-link' do
+                  = icon('fas', 'user', class: 'pr-1')
+                  span マイページ
+              li.nav-item
+                = link_to '/', class: 'nav-link' do
+                  = icon('fas', 'video', class: 'pr-1')
+                  span 映画登録
+              li.nav-item
+                = link_to '/', class: 'nav-link' do
+                  = icon('fas', 'edit', class: 'pr-1')
+                  span ユーザー編集
+              li.nav-item
+                = link_to logout_path, class: 'nav-link', method: :delete do
+                  = icon('fas', 'sign-out-alt', class: 'pr-1')
+                  span ログアウト
+
+    .container
+      = yield
+
+    footer.global-footer

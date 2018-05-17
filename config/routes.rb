@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :registrations
+  resources :films
 
   get 'sessions/new'
   post 'login', to: 'sessions#create'

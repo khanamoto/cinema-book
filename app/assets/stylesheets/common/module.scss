@@ -1,0 +1,29 @@
+// =============================
+// 共通モジュールやパーツ
+// =============================
+
+// ヘッダー ---------------------
+.global-header {
+  .logo-image {
+    img {
+      width: 50px;
+    }
+  }
+  &__search {
+    position: relative;
+    button {
+      position: absolute;
+      right: 0;
+      border-radius: 0 .25rem .25rem 0;
+    }
+  }
+  &__nav {
+    ul {
+      font-size: .875rem;
+    }
+  }
+}
+// フッター ---------------------
+.copyright {
+  font-size: 12px;
+}
