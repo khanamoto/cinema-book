@@ -1,35 +1,36 @@
 - @page_title = Settings.sessions.meta.title
 
-.sessions
-  section.sessions__description.my-4
-    = image_tag 'films_logo.svg', class: 'logo-image'
-    h1
-      = image_tag 'films_logo_text.svg', class: 'logo-font' ,alt: 'Films'
-    p.sessions__description__text ~見た映画を記録してシェアしよう！~
+.container
+  .sessions
+    section.sessions__description.my-4
+      = image_tag 'films_logo.svg', class: 'logo-image'
+      h1
+        = image_tag 'films_logo_text.svg', class: 'logo-font' ,alt: 'Films'
+      p.sessions__description__text ~見た映画を記録してシェアしよう！~
 
-  .row.justify-content-center.mb-3
-    .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
-      .card.bg-light.px-3.py-5.p-md-5
-        = form_with url: login_path, class: 'sessions__form', local: true do |form|
-          h2.mb-3 ログイン
+    .row.justify-content-center.mb-3
+      .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+        .card.bg-light.px-3.py-5.p-md-5
+          = form_with url: login_path, class: 'sessions__form', local: true do |form|
+            h2.mb-3 ログイン
 
-          - if @error
-            .error_explanation.mb-3
-              ul
-                li = @error
+            - if @error
+              .error_explanation.mb-3
+                ul
+                  li = @error
 
-          .form-group
-            = form.text_field :email, class: 'form-control mb-2', placeholder: 'メールアドレス', type: 'email', required: true
-            = form.password_field :password, class: 'form-control mb-2', placeholder: 'パスワード', required: true
+            .form-group
+              = form.text_field :email, class: 'form-control mb-2', placeholder: 'メールアドレス', type: 'email', required: true
+              = form.password_field :password, class: 'form-control mb-2', placeholder: 'パスワード', required: true
 
-          / ログイン後にリダイレクトするアドレスをセット
-          = hidden_field_tag :referer, flash[:referer]
-          button.btn.btn-primary.mb-4 type='submit' ログインする
+            / ログイン後にリダイレクトするアドレスをセット
+            = hidden_field_tag :referer, flash[:referer]
+            button.btn.btn-primary.mb-4 type='submit' ログインする
 
-        = link_to 'パスワードが分からない場合', '/'
+          = link_to 'パスワードが分からない場合', '/'
 
-  p.sessions__note
-    | アカウントをお持ちでない方はこちら
-    = link_to 'アカウント登録', '/registrations/new', class: 'pl-1'
+    p.sessions__note
+      | アカウントをお持ちでない方はこちら
+      = link_to 'アカウント登録', '/registrations/new', class: 'pl-1'
 
-  .copyright © 2018 Films
+    .copyright © 2018 Films
