@@ -7,6 +7,9 @@
 // ヘッダー ---------------------
 // 共通（極小サイズ）
 .global-header {
+  .container {
+    padding: 0;
+  }
   .logo-image {
     width: 30px;
   }
@@ -33,6 +36,9 @@
 
   // 横向きモバイル、ファブレットサイズ（576px以上）
   @include media-breakpoint-up(sm) {
+    .container {
+      padding: 0 15px;
+    }
   }
 
   // タブレットサイズ（768px以上）
