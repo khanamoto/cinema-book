@@ -30,7 +30,7 @@ html
                     = icon('fas', 'user', class: 'pr-md-1')
                     span.d-none.d-md-inline マイページ
                 li.nav-item.mr-3
-                  = link_to '/', class: 'nav-link' do
+                  = link_to new_film_path, class: 'nav-link' do
                     = icon('fas', 'video', class: 'pr-md-1')
                     span.d-none.d-md-inline 映画登録
                 li.nav-item.mr-3
@@ -46,17 +46,9 @@ html
       = yield
 
     footer.global-footer.navbar-light.bg-light
-      .container.py-2
+      .container.pt-4.pb-2.pt-md-2
         .global-footer__nav
-          ul.navbar-nav.flex-md-row.text-center.text-md-left.mb-4
-            li.nav-item.mr-md-3
-              = link_to 'トップページ', '/', class: 'nav-link'
-            li.nav-item.mr-md-3
-              = link_to 'マイページ', '/', class: 'nav-link'
-            li.nav-item.mr-md-3
-              = link_to '映画登録', '/', class: 'nav-link'
-            li.nav-item.mr-md-3
-              = link_to 'ユーザー編集', '/', class: 'nav-link'
+          ul.navbar-nav.flex-md-row.mb-4
             li.nav-item.mr-md-3
               = link_to 'お問い合わせ', '/', class: 'nav-link'
             li.nav-item.mr-md-3

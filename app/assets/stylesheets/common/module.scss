@@ -1,3 +1,5 @@
+@import '_setting';
+
 // =============================
 // 共通モジュールやパーツ
 // =============================
@@ -57,9 +59,14 @@
   &__nav {
     ul {
       font-size: .812rem;
-      a {
-        display: inline-block;
-        margin: .25rem 0;
+      li {
+        border-bottom: 1px solid $dark-accent;
+        &:first-child {
+          border-top: 1px solid $dark-accent;
+        }
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -74,9 +81,14 @@
   @include media-breakpoint-up(md) {
     &__nav {
       ul {
-        a {
-          display: block;
-          margin: 0;
+        li {
+          border: 0;
+          &:first-child {
+            border-top: 0;
+          }
+          a {
+            text-decoration: underline;
+          }
         }
       }
     }
