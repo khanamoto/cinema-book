@@ -53,6 +53,36 @@
 }
 
 // フッター ---------------------
-.copyright {
-  font-size: 12px;
+.global-footer {
+  &__nav {
+    ul {
+      font-size: .812rem;
+      a {
+        display: inline-block;
+        margin: .25rem 0;
+      }
+    }
+  }
+  .copyright {
+    font-size: 12px;
+  }
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+    &__nav {
+      ul {
+        a {
+          display: block;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
 }

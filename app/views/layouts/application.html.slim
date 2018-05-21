@@ -6,14 +6,14 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header.global-header.navbar.navbar-expand-md.navbar-light.bg-light.mb-4
+    header.global-header.navbar.navbar-light.bg-light
       .container
         = link_to '/', class: 'navbar-brand'
           = image_tag 'films_logo.svg', class: 'logo-image'
 
         .clearfix
           .float-lg-left.d-none.d-md-block
-            = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end mr-lg-2', local: true do |form|
+            = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end mr-lg-3', local: true do |form|
               div
                 = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
               button.btn.btn-outline-success type='submit'
@@ -25,15 +25,15 @@ html
                 li.nav-item.mr-3.d-md-none
                   = link_to '/', class: 'nav-link' do
                     = icon('fas', 'search')
-                li.nav-item.mr-3.mr-md-0
+                li.nav-item.mr-3
                   = link_to '/', class: 'nav-link' do
                     = icon('fas', 'user', class: 'pr-md-1')
                     span.d-none.d-md-inline マイページ
-                li.nav-item.mr-3.mr-md-0
+                li.nav-item.mr-3
                   = link_to '/', class: 'nav-link' do
                     = icon('fas', 'video', class: 'pr-md-1')
                     span.d-none.d-md-inline 映画登録
-                li.nav-item.mr-3.mr-md-0
+                li.nav-item.mr-3
                   = link_to '/', class: 'nav-link' do
                     = icon('fas', 'edit', class: 'pr-md-1')
                     span.d-none.d-md-inline ユーザー編集
@@ -42,6 +42,25 @@ html
                     = icon('fas', 'sign-out-alt', class: 'pr-md-1')
                     span.d-none.d-md-inline ログアウト
 
-    = yield
+    .container.py-4
+      = yield
 
-    footer.global-footer
+    footer.global-footer.navbar-light.bg-light
+      .container.py-2
+        .global-footer__nav
+          ul.navbar-nav.flex-md-row.text-center.text-md-left.mb-4
+            li.nav-item.mr-md-3
+              = link_to 'トップページ', '/', class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'マイページ', '/', class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to '映画登録', '/', class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'ユーザー編集', '/', class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'お問い合わせ', '/', class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'プライバシーポリシー', '/', class: 'nav-link'
+            li.nav-item
+              = link_to '利用規約', '/', class: 'nav-link'
+        .copyright.text-center © 2018 Films
