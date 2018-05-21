@@ -7,8 +7,8 @@
       = image_tag 'films_logo_text.svg', class: 'logo-font' ,alt: 'Films'
     p.registrations__description__text ~見た映画を記録してシェアしよう！~
 
-  .row.justify-content-center.mb-3
-    .col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+  .row.mb-3
+    .col-md-8.offset-md-2.col-lg-6.offset-lg-3
       .card.bg-light.px-3.py-5.p-md-5
         = form_with model: @user, url: registrations_path, class: 'registrations__form', local: true do |form|
           h2.mb-3 アカウント登録
