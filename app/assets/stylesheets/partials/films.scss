@@ -1,0 +1,26 @@
+// 共通（極小サイズ）
+.films {
+  &__header {
+    .temp-image {
+      width: 70px; // 仮のユーザーアイコン
+    }
+  }
+  &__main {
+    button {
+      border-radius: .125rem;
+      padding: .75rem 4rem;
+    }
+  }
+
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
+}

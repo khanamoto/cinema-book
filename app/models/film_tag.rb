@@ -1,4 +1,4 @@
 class FilmTag < ApplicationRecord
-  belongs_to :film
-  belongs_to :tag
+  belongs_to :film, inverse_of: :films_tags
+  belongs_to :tag, inverse_of: :films_tags
 end
