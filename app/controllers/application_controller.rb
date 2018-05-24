@@ -10,6 +10,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_logined
+    if session[:user] then
+      begin
+        @user = User.find(session[:user])
+      rescue ActiveRecord::RecordNotFound
+        # ユーザー情報がない場合は、不正なアクセスとみなしセッションを破棄
+        reset_session
+      end
+    end
+
+    # ユーザー情報を取得できなかった場合は、ログインページへ
+    unless @user
+      # ログインに成功した時、元の要求ページにリダイレクトさせるためリクエストURLをセット
+      flash[:referer] = request.fullpath
+      redirect_to controller: :sessions, action: :new
+    end
+  end
+
   def set_current_user
     @current_user = User.find_by(id: session[:user])
   end

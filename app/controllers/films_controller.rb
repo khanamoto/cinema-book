@@ -1,4 +1,6 @@
 class FilmsController < ApplicationController
+  before_action :check_logined
+
   def show
   end
 
