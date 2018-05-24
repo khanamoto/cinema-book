@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
   def new
     @film = Film.new
     # 関連オブジェクトを生成
-    @film.tags.build
+    # @film.tags.build
   end
 
   def create
@@ -30,6 +30,6 @@ class FilmsController < ApplicationController
 
   private
   def film_params
-    params.require(:film).permit(:title, :staff, :comment, :favorite_scene, :cinema, :watch_day, :film_image, tags_attributes: [:tag_name])
+    params.require(:film).permit(:title, :staff, :comment, :favorite_scene, :cinema, :watch_day, :film_image)#, tags_attributes: [:tag_name])
   end
 end
