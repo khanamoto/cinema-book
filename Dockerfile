@@ -2,7 +2,7 @@
 FROM ruby:2.5.1
 
 # RubyイメージはDebianイメージをベースにしているため、apt-getを使い依存関係をインストールする
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs imagemagick
 
 # /railbook を作業用ディレクトリに設定する
 # 以下のRUN,CMD,ENTRYPOINT,COPY,ADDコマンドはこのディレクトリ配下で実行される

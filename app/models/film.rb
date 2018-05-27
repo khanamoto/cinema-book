@@ -6,6 +6,8 @@ class Film < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  mount_uploader :film_image, ImageUploader
+
   validates :user_id,
     presence: true
 

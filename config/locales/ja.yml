@@ -133,6 +133,13 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      carrierwave_processing_error: failed to be processed
+      carrierwave_integrity_error: is not of an allowed file type
+      carrierwave_download_error: could not be downloaded
+      extension_whitelist_error: "は%{allowed_types}のいずれかのファイル形式でアップしてください"
+      mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
+      min_size_error: "File size should be greater than %{min_size}"
+      max_size_error: "は%{max_size}より小さいサイズの画像をアップしてください"
     template:
       body: 次の項目を確認してください
       header:
@@ -209,3 +216,4 @@ ja:
     password: パスワード
     password_confirmation: 確認用パスワード
     agree: 利用規約
+    film_image: 作品画像

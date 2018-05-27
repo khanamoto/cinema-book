@@ -60,6 +60,11 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do
+  # 画像S3連携
+  gem 'fog'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -72,3 +77,7 @@ gem 'font-awesome-sass'
 gem 'bcrypt'
 gem 'meta-tags'
 gem 'settingslogic'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
