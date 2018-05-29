@@ -1,8 +1,6 @@
 class FilmsController < ApplicationController
   before_action :check_logined
-
-  def show
-  end
+  before_action :set_film, only: [:show, :edit, :update, :destroy]
 
   def new
     @film = Film.new
@@ -21,16 +19,32 @@ class FilmsController < ApplicationController
     end
   end
 
+  def index
+    @films = Film.where(user_id: @current_user)
+  end
+
+  def show
+  end
+
   def edit
   end
 
   def update
+    if @film.update(film_params)
+      redirect_to films_path
+    else
+      render :edit
+    end
   end
 
   def destroy
   end
 
   private
+  def set_film
+    @film = Film.find(params[:id])
+  end
+
   def film_params
     params.require(:film).permit(:title, :staff, :comment, :favorite_scene, :cinema, :watch_day, :film_image)#, tags_attributes: [:tag_name])
   end

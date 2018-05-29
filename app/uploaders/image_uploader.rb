@@ -7,10 +7,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   # 大きい画像を自動リサイズする
-  process resize_to_limit: [400, 400]
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  process resize_to_fit: [400, 400]
+  # サムネ画像のリサイズ
+  version :thumb do
+    process resize_to_fit: [100, 162]
+  end
 
   # 保存ディレクトリを指定する
   def store_dir

@@ -8,8 +8,9 @@ html
   body
     header.global-header.navbar.navbar-light.bg-light
       .container
-        = link_to '/', class: 'navbar-brand'
-          = image_tag 'films_logo.svg', class: 'logo-image'
+        h1
+          = link_to '/', class: 'navbar-brand'
+            = image_tag 'films_logo.svg', class: 'logo-image', alt: 'Films'
 
         .clearfix
           .float-lg-left.d-none.d-md-block
@@ -26,7 +27,7 @@ html
                   = link_to '/', class: 'nav-link' do
                     = icon('fas', 'search')
                 li.nav-item.mr-3
-                  = link_to '/', class: 'nav-link' do
+                  = link_to films_path, class: 'nav-link' do
                     = icon('fas', 'user', class: 'pr-md-1')
                     span.d-none.d-md-inline マイページ
                 li.nav-item.mr-3

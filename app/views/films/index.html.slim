@@ -1,1 +1,19 @@
-h1 映画一覧
+.row
+  .col-12.col-md-4.col-lg-3.mb-4
+    .card.p-3
+      h2 ユーザー情報
+      p サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト
+  .col-12.col-md-8.col-lg-6.mb-4
+    .card.p-3
+      - @films.each do |film|
+        .media
+          = link_to film, class: 'mr-3'
+            = image_tag film.film_image.thumb.url if film.film_image?
+          .media-body
+            h2.mt-0 = link_to film.title, film
+            p = film.comment
+            small.text-muted = film.updated_at.strftime('%Y-%m-%d')
+  .col-12.col-lg-3.mb-4
+    .card.p-3
+      h2 広告
+      p サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト
