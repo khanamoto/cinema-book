@@ -12,6 +12,41 @@
     }
   }
 
+  // TODO:あとで変更する
+  &-index {
+    .card-header {
+      img {
+        border-radius: 50%;
+        width: 45px;
+        margin-right: 1rem;
+      }
+      .media-body {
+        .user-info__username {
+          font-size: .875rem;
+        }
+        .user-info__profilename {
+          font-size: .75rem;
+        }
+      }
+    }
+    .card-img-top {
+      img {
+        width: 100%;
+        height: 350px;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+    .card-body {
+      .card-title {
+        font-size: 1.625rem;
+      }
+      .card-text {
+        font-size: .875rem;
+      }
+    }
+  }
+
   // 横向きモバイル、ファブレットサイズ（576px以上）
   @include media-breakpoint-up(sm) {
   }

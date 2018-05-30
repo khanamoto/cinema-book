@@ -1,27 +1,28 @@
-.row
-  = render 'side_user'
+.films.films-show
+  .row
+    = render 'side_user'
 
-  .col-12.col-md-8.col-lg-6.mb-4
-    .card.p-3
-      = image_tag @film.film_image.url if @film.film_image?
+    .col-12.col-md-8.col-lg-6.mb-4
+      .card.p-3
+        = image_tag @film.film_image.url if @film.film_image?
 
-      h2 = @film.title
+        h2 = @film.title
 
-      h3 監督、出演者など
-      p = @film.staff
+        h3 監督、出演者など
+        p = @film.staff
 
-      h3 コメント
-      p = @film.comment
+        h3 コメント
+        p = @film.comment
 
-      h3 お気に入りシーン
-      p = @film.favorite_scene
+        h3 お気に入りシーン
+        p = @film.favorite_scene
 
-      h3 鑑賞した日
-      p = @film.watch_day
+        h3 鑑賞した日
+        p = @film.watch_day
 
-      h3 鑑賞した映画館
-      p = @film.cinema
+        h3 鑑賞した映画館
+        p = @film.cinema
 
-      = link_to 'この映画を編集する', edit_film_path(@film), class: 'text-center'
+        = link_to 'この映画を編集する', edit_film_path(@film), class: 'text-center'
 
-  = render 'side_ad'
+    = render 'side_ad'

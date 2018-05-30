@@ -1,15 +1,25 @@
-.row
-  = render 'side_user'
+.films.films-index
+  .row
+    = render 'side_user'
 
-  .col-12.col-md-8.col-lg-6.mb-4
-    .card.p-3
+    .col-12.col-md-8.col-lg-6.mb-4
       - @films.each do |film|
-        .media
-          = link_to film, class: 'mr-3'
-            = image_tag film.film_image.thumb.url if film.film_image?
-          .media-body
-            h2.mt-0 = link_to film.title, film
-            p = film.comment
+        .card.mb-4
+          header.films__header.card-header.media.align-items-center
+            = image_tag 'films_logo.svg', class: 'temp-image'
+            .media-body
+              .user-info__username アカウント名
+              .user-info__profilename ユーザー名
+          = link_to film, class: 'card-img-top'
+            = image_tag film.film_image.url if film.film_image?
+          .card-body
+            h2.card-title = link_to film.title, film
+            p.card-text = film.comment
             small.text-muted = film.updated_at.strftime('%Y-%m-%d')
+          / ul
+          /   li
+          /     = icon('far', 'thumbs-up', class: 'pr-md-1')
+          /   li
+          /     = icon('far', 'comments', class: 'pr-md-1')
 
-  = render 'side_ad'
+    = render 'side_ad'
