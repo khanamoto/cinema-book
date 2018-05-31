@@ -10,11 +10,13 @@
             .media-body
               .user-info__username アカウント名
               .user-info__profilename ユーザー名
+            = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
+              = icon('fas', 'ellipsis-h')
           = link_to film, class: 'card-img-top'
             = image_tag film.film_image.url if film.film_image?
           .card-body
             h2.card-title = link_to film.title, film
-            p.card-text = film.comment
+            p.card-text = truncate(film.comment, length: 100)
             small.text-muted = film.updated_at.strftime('%Y-%m-%d')
           / ul
           /   li

@@ -20,7 +20,7 @@ class FilmsController < ApplicationController
   end
 
   def index
-    @films = Film.where(user_id: @current_user)
+    @films = Film.where(user_id: @current_user).order(updated_at: :desc)
   end
 
   def show
@@ -38,6 +38,8 @@ class FilmsController < ApplicationController
   end
 
   def destroy
+    @film.destroy
+    redirect_to films_path
   end
 
   private
