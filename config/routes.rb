@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
   resources :registrations
   resources :films
+
+  resources :users do
+    member do
+      get :password
+    end
+  end
 
   get 'sessions/new'
   post 'login', to: 'sessions#create'

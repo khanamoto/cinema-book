@@ -61,6 +61,7 @@
 }
 
 // フッター ---------------------
+// 共通（極小サイズ）
 .global-footer {
   &__nav {
     ul {
@@ -103,4 +104,29 @@
   // PCサイズ（992px以上）
   @include media-breakpoint-up(lg) {
   }
+}
+
+// メインコンテンツ --------------
+// 共通（極小サイズ）
+// 保存後のメッセージ
+.save_explanation {
+  text-align: left;
+  ul {
+    color: $success;
+    font-size: .875rem;
+    list-style: none;
+    padding: 0;
+  }
+}
+
+// 横向きモバイル、ファブレットサイズ（576px以上）
+@include media-breakpoint-up(sm) {
+}
+
+// タブレットサイズ（768px以上）
+@include media-breakpoint-up(md) {
+}
+
+// PCサイズ（992px以上）
+@include media-breakpoint-up(lg) {
 }

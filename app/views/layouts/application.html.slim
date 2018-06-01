@@ -35,7 +35,7 @@ html
                     = icon('fas', 'video', class: 'pr-md-1')
                     span.d-none.d-md-inline 映画登録
                 li.nav-item.mr-3
-                  = link_to '/', class: 'nav-link' do
+                  = link_to edit_user_path(@current_user), class: 'nav-link' do
                     = icon('fas', 'edit', class: 'pr-md-1')
                     span.d-none.d-md-inline ユーザー編集
                 li.nav-item

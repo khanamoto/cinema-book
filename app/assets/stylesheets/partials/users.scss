@@ -1,0 +1,71 @@
+// 共通（極小サイズ）
+.users {
+  &__header {
+    .temp-image {
+      width: 70px; // 仮のユーザーアイコン
+    }
+  }
+  &__main {
+    button {
+      border-radius: .125rem;
+      padding: .75rem 4rem;
+    }
+  }
+
+  // TODO:あとで変更する
+  &-index {
+    .card-header {
+      img {
+        border-radius: 50%;
+        width: 45px;
+        margin-right: 1rem;
+      }
+      .media-body {
+        .user-info__username {
+          font-size: .875rem;
+        }
+        .user-info__profilename {
+          font-size: .75rem;
+        }
+      }
+    }
+    .card-img-top {
+      img {
+        width: 100%;
+        height: 350px;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+    .card-body {
+      .card-title {
+        font-size: 1.625rem;
+      }
+      .card-text {
+        font-size: .875rem;
+      }
+    }
+  }
+
+  // TODO:あとで変更
+  &__delete-wrapper {
+    display: block;
+    a {
+      color: rgba($info, .5);
+      display: inline-block;
+      margin-top: 6rem;
+    }
+  }
+
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
+}
