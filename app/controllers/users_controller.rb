@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_logined
-  before_action :set_user, only: [:edit, :update, :destroy, :password]
+  before_action :set_user, only: [:edit, :update, :destroy, :password, :change_password]
 
   def edit
   end
@@ -21,6 +21,15 @@ class UsersController < ApplicationController
   end
 
   def change_password
+    # パスワード入力が空の場合、blankオプションでエラーメッセージを表示する
+    if params[:user][:password].empty?
+      @user.errors.add(:password, :blank)
+      render :password
+    elsif @user.update(user_password_params)
+      redirect_to password_user_path, notice: 'パスワードを変更しました'
+    else
+      render :password
+    end
   end
 
   private
@@ -30,5 +39,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:user_name, :profile_name, :email, :profile)
+  end
+
+  def user_password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 end
