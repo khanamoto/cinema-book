@@ -24,4 +24,6 @@
           /   li
           /     = icon('far', 'comments', class: 'pr-md-1')
 
+      = paginate @films, window: 2
+
     = render 'side_ad'

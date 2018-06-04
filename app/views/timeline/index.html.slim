@@ -1,9 +1,24 @@
-.row
-  = render 'side_user'
+.timeline.films-index
+  .row
+    = render 'side_user'
 
-  .col-12.col-md-8.col-lg-6
-    .card.p-3
-      h2 3つの列の2列目
-      p サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト
+    .col-12.col-md-8.col-lg-6
+      - @films.each do |film|
+        .card.mb-4
+          header.films__header.card-header.media.align-items-center
+            = image_tag 'films_logo.svg', class: 'temp-image'
+            .media-body
+              .user-info__username アカウント名
+              .user-info__profilename ユーザー名
+            = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
+              = icon('fas', 'ellipsis-h')
+          = link_to film, class: 'card-img-top'
+            = image_tag film.film_image.url if film.film_image?
+          .card-body
+            h2.card-title = link_to film.title, film
+            p.card-text = truncate(film.comment, length: 100)
+            small.text-muted = film.updated_at.strftime('%Y-%m-%d')
 
-  = render 'side_ad'
+      = paginate @films, window: 2
+
+    = render 'side_ad'

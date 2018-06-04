@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :timeline do
+    get 'page/:page', action: :index, on: :collection
+  end
+
   get 'sessions/new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

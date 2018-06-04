@@ -60,10 +60,12 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 
-gem 'bcrypt'
 gem 'meta-tags'
 gem 'settingslogic'
-
+# パスワード暗号化
+gem 'bcrypt'
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
+# ページネーション
+gem 'kaminari'
