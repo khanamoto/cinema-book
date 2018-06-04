@@ -21,11 +21,7 @@ class UsersController < ApplicationController
   end
 
   def change_password
-    # パスワード入力が空の場合、blankオプションでエラーメッセージを表示する
-    if params[:user][:password].empty?
-      @user.errors.add(:password, :blank)
-      render :password
-    elsif @user.update(user_password_params)
+    if @user.update(user_password_params)
       redirect_to password_user_path, notice: 'パスワードを変更しました'
     else
       render :password

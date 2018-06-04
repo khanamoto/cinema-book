@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password,
-    presence: { on: :create },
+    presence: { on: [ :create, :change_password ] },
     length: { minimum: 6 }
 
   validates :agree,
