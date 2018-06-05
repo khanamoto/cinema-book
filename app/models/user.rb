@@ -24,8 +24,9 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password,
+    # コントローラーで定義したコンテキスト（:change_password）で検証する
     presence: { on: [ :create, :change_password ] },
-    length: { minimum: 6 }
+    length: { minimum: 6, on: [ :create, :change_password ] }
 
   validates :agree,
     acceptance: { on: :create }

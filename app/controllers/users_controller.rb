@@ -21,7 +21,10 @@ class UsersController < ApplicationController
   end
 
   def change_password
-    if @user.update(user_password_params)
+    # フィールドの値を取得
+    @user.attributes = user_password_params
+    # シンボルを使い、検証するコンテキストを定義する
+    if @user.save(context: :change_password)
       redirect_to password_user_path, notice: 'パスワードを変更しました'
     else
       render :password
