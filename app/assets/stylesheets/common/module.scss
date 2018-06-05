@@ -106,6 +106,35 @@
   }
 }
 
+// サイドバー --------------------
+// 共通（極小サイズ）
+.global-sidebar {
+  .media {
+    img {
+      border-radius: 50%;
+      width: 60px;
+      margin-right: 1rem;
+    }
+    .media-body {
+      .user-info__username {
+        font-size: .75rem;
+      }
+    }
+  }
+
+  // 横向きモバイル、ファブレットサイズ（576px以上）
+  @include media-breakpoint-up(sm) {
+  }
+
+  // タブレットサイズ（768px以上）
+  @include media-breakpoint-up(md) {
+  }
+
+  // PCサイズ（992px以上）
+  @include media-breakpoint-up(lg) {
+  }
+}
+
 // メインコンテンツ --------------
 // 共通（極小サイズ）
 // 保存後のメッセージ
