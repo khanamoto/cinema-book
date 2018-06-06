@@ -8,8 +8,10 @@
           header.films__header.card-header.media.align-items-center
             = image_tag 'films_logo.svg', class: 'temp-image'
             .media-body
-              .user-info__username アカウント名
-              .user-info__profilename ユーザー名
+              .user-info__profilename
+                = @current_user.profile_name
+              .user-info__username
+                = @current_user.user_name
             = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
               = icon('fas', 'ellipsis-h')
           = link_to film, class: 'card-img-top'
