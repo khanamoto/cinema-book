@@ -20,7 +20,7 @@ class FilmsController < ApplicationController
   end
 
   def index
-    @films = Film.where(user_id: @current_user).order(updated_at: :desc).page(params[:page]).per(10)
+    @films = Film.where(user_id: @current_user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show

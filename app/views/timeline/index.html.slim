@@ -23,7 +23,7 @@
           .card-body
             h2.card-title = link_to film.title, film
             p.card-text = truncate(film.comment, length: 100)
-            small.text-muted = film.updated_at.strftime('%Y-%m-%d')
+            small.text-muted = film.created_at.strftime('%Y-%m-%d')
 
       = paginate @films, window: 2
 
