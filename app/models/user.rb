@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :follows
 
+  mount_uploader :user_image, ImageUploader
+
   validates :user_name,
     presence: true,
     uniqueness: true,

@@ -4,7 +4,10 @@
       .card.p-md-4
         header.users__header.text-center.p-3
           .users__header__user-info.mb-4
-            = image_tag 'films_logo.svg', class: 'temp-image mb-2'
+            - if @current_user.user_image?
+              = image_tag @current_user.user_image.user_image_thumb.url, class: 'temp-image mb-2'
+            - else
+              = image_tag 'default.svg', class: 'temp-image mb-2'
             .user-info__profilename
               = @current_user.profile_name
             .user-info__username
@@ -43,6 +46,10 @@
                 = form.label :profile, 'プロフィール文', class: 'col-md-3 col-form-label'
                 .col-md-9
                   = form.text_area :profile, class: 'form-control'
+              .form-group.row
+                = form.label :user_image, 'プロフィール画像', class: 'col-md-3 col-form-label'
+                .col-md-9
+                  = form.file_field :user_image, class: 'form-control-file', id: 'File'
               dl.form-group.row.align-items-center
                 dt.col-md-3.col-form-label.font-weight-normal パスワード
                 .col-md-9
