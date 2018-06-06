@@ -1,28 +1,44 @@
-.films.films-show
+.films.films-show.films-index
   .row
     = render partial: 'side_user', locals: { user: @current_user }
 
     .col-12.col-md-8.col-lg-6.mb-4
-      .card.p-3
-        = image_tag @film.film_image.url if @film.film_image?
+      .card
+        header.films__header.card-header.media.align-items-center
+          - if @film.user.user_image?
+            = image_tag @film.user.user_image.user_image_thumb.url, class: 'temp-image'
+          - else
+            = image_tag 'default.svg', class: 'temp-image'
+          .media-body
+            .user-info__profilename
+              = @film.user.profile_name
+            .user-info__username
+              = @film.user.user_name
+          - if @film.user_id == @current_user.id
+            = link_to film_path(@film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
+              = icon('fas', 'ellipsis-h')
 
-        h2 = @film.title
+        .card-body
+          = image_tag @film.film_image.url if @film.film_image?
 
-        h3 監督、出演者など
-        p = @film.staff
+          h2 = @film.title
 
-        h3 コメント
-        p = @film.comment
+          h3 監督、出演者など
+          p = @film.staff
 
-        h3 お気に入りシーン
-        p = @film.favorite_scene
+          h3 コメント
+          p = @film.comment
 
-        h3 鑑賞した日
-        p = @film.watch_day
+          h3 お気に入りシーン
+          p = @film.favorite_scene
 
-        h3 鑑賞した映画館
-        p = @film.cinema
+          h3 鑑賞した日
+          p = @film.watch_day
 
-        = link_to 'この映画を編集する', edit_film_path(@film), class: 'text-center'
+          h3 鑑賞した映画館
+          p = @film.cinema
+
+        - if @film.user_id == @current_user.id
+          = link_to 'この映画を編集する', edit_film_path(@film), class: 'text-center'
 
     = render 'side_ad'
