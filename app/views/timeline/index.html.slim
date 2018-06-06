@@ -6,15 +6,15 @@
       - @films.each do |film|
         .card.mb-4
           header.films__header.card-header.media.align-items-center
-            - if @current_user.user_image?
-              = image_tag @current_user.user_image.user_image_thumb.url, class: 'temp-image'
+            - if film.user.user_image?
+              = image_tag film.user.user_image.user_image_thumb.url, class: 'temp-image'
             - else
               = image_tag 'default.svg', class: 'temp-image'
             .media-body
               .user-info__profilename
-                = @current_user.profile_name
+                = film.user.profile_name
               .user-info__username
-                = @current_user.user_name
+                = film.user.user_name
             = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
               = icon('fas', 'ellipsis-h')
           = link_to film, class: 'card-img-top'
