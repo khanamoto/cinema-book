@@ -1,5 +1,8 @@
 class FilmsController < ApplicationController
+  include SessionsHelper
+
   before_action :check_logined
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_film, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -49,5 +52,11 @@ class FilmsController < ApplicationController
 
   def film_params
     params.require(:film).permit(:title, :staff, :comment, :favorite_scene, :cinema, :watch_day, :film_image)#, tags_attributes: [:tag_name])
+  end
+
+  def correct_user
+    @film = Film.find_by(id: params[:id])
+    @user = User.find_by(id: @film.user_id)
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

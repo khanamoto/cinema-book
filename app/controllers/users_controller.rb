@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  include SessionsHelper
+
   before_action :check_logined
+  before_action :correct_user, only: [:edit, :update, :destroy, :password, :change_password]
   before_action :set_user, only: [:edit, :update, :destroy, :password, :change_password]
 
   def edit
@@ -42,5 +45,10 @@ class UsersController < ApplicationController
 
   def user_password_params
     params.require(:user).permit(:password, :password_confirmation)
+  end
+
+  def correct_user
+    @user = User.find_by(id: params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
