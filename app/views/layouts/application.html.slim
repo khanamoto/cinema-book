@@ -16,7 +16,7 @@ html
           .float-lg-left.d-none.d-md-block
             = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end mr-lg-3', local: true, skip_enforcing_utf8: true do |form|
               div
-                = form.text_field :search, class: 'form-control', placeholder: '映画タイトル検索', 'aria-label': '映画タイトル検索'
+                = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
               button.btn.btn-outline-success type='submit'
                 = icon('fas', 'search')
 
