@@ -16,14 +16,10 @@ class FilmsController < ApplicationController
     @film.user_id = @current_user.id
 
     if @film.save
-      redirect_to films_path
+      redirect_to user_path(@current_user)
     else
       render :new
     end
-  end
-
-  def index
-    @films = Film.where(user_id: @current_user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
@@ -34,7 +30,7 @@ class FilmsController < ApplicationController
 
   def update
     if @film.update(film_params)
-      redirect_to films_path
+      redirect_to user_path(@current_user)
     else
       render :edit
     end
@@ -42,7 +38,7 @@ class FilmsController < ApplicationController
 
   def destroy
     @film.destroy
-    redirect_to films_path
+    redirect_to user_path(@current_user)
   end
 
   private

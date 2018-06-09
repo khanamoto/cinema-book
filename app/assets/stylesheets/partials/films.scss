@@ -15,10 +15,12 @@
   // TODO:あとで変更する
   &-index {
     .card-header {
-      img {
-        border-radius: 50%;
-        width: 45px;
+      a {
         margin-right: 1rem;
+        img {
+          border-radius: 50%;
+          width: 45px;
+        }
       }
       .media-body {
         .user-info__username {

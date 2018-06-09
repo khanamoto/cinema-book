@@ -5,6 +5,13 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy, :password, :change_password]
   before_action :set_user, only: [:edit, :update, :destroy, :password, :change_password]
 
+  def show
+    @films = Film.where(user_id: params[:id]).order(created_at: :desc).page(params[:page]).per(10)
+
+    # サイドバーに表示するユーザーを取得する
+    @user = User.find_by(id: params[:id])
+  end
+
   def edit
   end
 

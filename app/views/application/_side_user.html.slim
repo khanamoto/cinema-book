@@ -12,8 +12,9 @@
           .user-info__username
             = user.user_name
       p.card-text = truncate(user.profile, length: 50)
-      .clearfix.mb-4
-        = link_to 'プロフィール編集', edit_user_path(@current_user), class: 'btn btn-outline-primary btn-sm float-right', role: 'button'
+      - if user.id == @current_user.id
+        .clearfix.mb-4
+          = link_to 'プロフィール編集', edit_user_path(@current_user), class: 'btn btn-outline-primary btn-sm float-right', role: 'button'
 
       ul.d-flex.justify-content-around.list-unstyled
         li.d-flex.flex-column.align-items-center
