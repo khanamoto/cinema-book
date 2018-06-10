@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       patch :change_password
     end
   end
+  # get ':user_name/:id' => 'users#show'
 
   resources :timeline do
     get 'page/:page', action: :index, on: :collection
