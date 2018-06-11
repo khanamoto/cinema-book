@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'static/terms'
+  get 'static/privacy'
+
   root to: 'timeline#index'
 end
