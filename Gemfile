@@ -47,6 +47,7 @@ group :test do
 end
 
 group :production do
+gem 'unicorn'
   # 画像S3連携
   gem 'fog'
 end
