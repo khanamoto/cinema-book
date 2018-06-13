@@ -19,5 +19,6 @@ services:
     env_file: .env
     environment:
       - "TZ=Asia/Tokyo"
+      - "EDITOR=vim"
     volumes:
       - .:/films:cached
