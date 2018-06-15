@@ -1,25 +1,19 @@
 #### Rails標準
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
 # Ignore uploaded files in development
 /storage/*
-
 /node_modules
 /yarn-error.log
-
 /public/assets
 .byebug_history
-
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
 ### https://raw.github.com/github/gitignore/ea2aa40cb4620e334a87e8494e03d0e7d1ec11df/Ruby.gitignore
-
 *.rbc
 capybara-*.html
 .rspec
@@ -31,24 +25,19 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
-
 ## Environment normalization:
 /.bundle
 /vendor/bundle
-
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
-
 # Ignore pow environment settings
 .powenv
-
 # Ignore Byebug command history file.
 .byebug_history
 
 ### 独自追加
 /db/mysql
 .env
-
 # 本番環境のみ
 /spec
 Dockerfile
