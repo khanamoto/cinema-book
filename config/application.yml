@@ -1,0 +1,68 @@
+defaults: &defaults
+
+  # 全体ページ
+  site:
+    name: Films
+    root_url: localhost:3000
+    meta:
+      title: 見た映画を記録してシェアしよう
+      description: 説明文が入ります
+      # webclipicon: /webclipicon.png
+      # favicon: /favicon.ico
+      # fb:
+      #   app_id: 9999999999
+      og:
+        title: :title,
+        description: og説明文
+        image: /images/films_logo.svg
+        type: website
+    #   twitter:
+    #     title: page title
+    #     description: twitter description
+    #     image: /img/ogp.png
+    # sns_account:
+    #   twitter: https://twitter.com/sample
+
+  # 個別ページ
+  registrations:
+    meta:
+      title: アカウント登録
+  sessions:
+    meta:
+      title: ログイン
+
+  # 複数OGP
+  # ogp:
+  #   - index: 1
+  #     title: ogp1 title
+  #     description: ogp1 description
+  #     share_description: ogp1 share_description
+  #   - index: 2
+  #     title: ogp2 title
+  #     description: ogp2 description
+  #     share_description: ogp2 share_description
+  #   - index: 3
+  #     title: ogp3 title
+  #     description: ogp3 description
+  #     share_description: ogp3 share_description
+
+  # share
+  # share:
+  #   twitter:
+  #     text: |-
+  #       description
+  #       #hashtag description
+  #     hashtags: hashtag1, hashtag2
+  #   line:
+  #     text: |-
+  #       description
+  #       description
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
