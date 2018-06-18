@@ -12,36 +12,37 @@ html
           = link_to '/', class: 'navbar-brand'
             = image_tag 'films_logo.svg', class: 'logo-image', alt: 'Films'
 
-        .clearfix
-          .float-lg-left.d-none.d-md-block
-            = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end mr-lg-3', local: true, skip_enforcing_utf8: true do |form|
-              div
-                = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
-              button.btn.btn-outline-success type='submit'
-                = icon('fas', 'search')
+        - unless @current_user.nil?
+          .clearfix
+            .float-lg-left.d-none.d-md-block
+              = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end mr-lg-3', local: true, skip_enforcing_utf8: true do |form|
+                div
+                  = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
+                button.btn.btn-outline-success type='submit'
+                  = icon('fas', 'search')
 
-          .float-lg-left
-            .global-header__nav
-              ul.navbar-nav.flex-row.justify-content-end
-                li.nav-item.mr-3.d-md-none
-                  = link_to '/', class: 'nav-link' do
-                    = icon('fas', 'search')
-                li.nav-item.mr-3
-                  = link_to user_path(@current_user), class: 'nav-link' do
-                    = icon('fas', 'user', class: 'pr-md-1')
-                    span.d-none.d-md-inline マイページ
-                li.nav-item.mr-3
-                  = link_to new_film_path, class: 'nav-link' do
-                    = icon('fas', 'video', class: 'pr-md-1')
-                    span.d-none.d-md-inline 映画登録
-                li.nav-item.mr-3
-                  = link_to edit_user_path(@current_user), class: 'nav-link' do
-                    = icon('fas', 'edit', class: 'pr-md-1')
-                    span.d-none.d-md-inline ユーザー編集
-                li.nav-item
-                  = link_to logout_path, class: 'nav-link', method: :delete do
-                    = icon('fas', 'sign-out-alt', class: 'pr-md-1')
-                    span.d-none.d-md-inline ログアウト
+            .float-lg-left
+              .global-header__nav
+                ul.navbar-nav.flex-row.justify-content-end
+                  li.nav-item.mr-3.d-md-none
+                    = link_to '/', class: 'nav-link' do
+                      = icon('fas', 'search')
+                  li.nav-item.mr-3
+                    = link_to user_path(@current_user), class: 'nav-link' do
+                      = icon('fas', 'user', class: 'pr-md-1')
+                      span.d-none.d-md-inline マイページ
+                  li.nav-item.mr-3
+                    = link_to new_film_path, class: 'nav-link' do
+                      = icon('fas', 'video', class: 'pr-md-1')
+                      span.d-none.d-md-inline 映画登録
+                  li.nav-item.mr-3
+                    = link_to edit_user_path(@current_user), class: 'nav-link' do
+                      = icon('fas', 'edit', class: 'pr-md-1')
+                      span.d-none.d-md-inline ユーザー編集
+                  li.nav-item
+                    = link_to logout_path, class: 'nav-link', method: :delete do
+                      = icon('fas', 'sign-out-alt', class: 'pr-md-1')
+                      span.d-none.d-md-inline ログアウト
 
     .container.py-4
       = yield
