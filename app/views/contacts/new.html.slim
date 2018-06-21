@@ -1,0 +1,31 @@
+.films
+  .row
+    .col-md.col-lg-8.offset-lg-2
+      .card
+        h2.text-center.p-3 お問い合わせ
+
+        - if @contact.errors.any?
+          .error_explanation.mb-3
+            ul
+              - @contact.errors.full_messages.each do |message|
+                li = message
+
+        .films__main.card-body
+          = form_with model: @contact, url: contacts_confirm_path, local: true do |form|
+
+            .films__main__wrapper.mb-5
+              .form-group.row
+                = form.label :contact_name, 'お名前 *', class: 'col-md-3 col-form-label'
+                .col-md-9
+                  = form.text_field :contact_name, class: 'form-control', required: true
+              .form-group.row
+                = form.label :contact_email, 'メールアドレス *', class: 'col-md-3 col-form-label'
+                .col-md-9
+                  = form.text_field :contact_email, class: 'form-control', type: 'email', required: true
+              .form-group.row
+                = form.label :body, 'お問い合わせ内容 *', class: 'col-md-3 col-form-label'
+                .col-md-9
+                  = form.text_area :body, class: 'form-control'
+
+            .text-center
+              button.btn.btn-primary type='submit' 確認する

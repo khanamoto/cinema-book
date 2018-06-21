@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'contacts', to: 'contacts#new'
+  post 'contacts/sendmail', to: 'contacts#create'
+  post 'contacts/confirm'
+  get 'contacts/complete'
+
   get 'terms', to: 'static#terms'
   get 'privacy', to: 'static#privacy'
 
