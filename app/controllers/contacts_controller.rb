@@ -19,6 +19,11 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
+      # お問い合わせした人にメール自動送信する
+      NoticeMailer.sendmail_contact(@contact).deliver_now
+      # 自分にお問い合わせを通知する
+      NoticeMailer.sendmail_contact_me(@contact).deliver_now
+
       redirect_to contacts_complete_path
     else
       render :new

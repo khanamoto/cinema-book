@@ -1,0 +1,22 @@
+p #{@user.contact_name}様
+
+p
+  | この度はFilmsにお問い合わせいただきまして、誠にありがとうございます。<br>
+    内容を確認し、ご入力いただいたメールアドレスに速やかに回答をさせていただきますので、今しばらくお待ちくださいませ。
+
+p
+  | #{@user.contact_name}様よりいただきましたお問い合わせ内容は以下でございます。<br>
+    ご確認ください。
+
+hr
+ul style="list-style-type: none; padding: 0;"
+  li お名前 : #{@user.contact_name}
+  li メールアドレス : #{@user.contact_email}
+  li お問い合わせ内容 :<br>#{@user.body}
+hr
+
+p
+  | その他なにかご不明点がございましたら、お気軽にお問い合わせください。<br>
+    よろしくお願いいたします。
+
+p © 2018 Films

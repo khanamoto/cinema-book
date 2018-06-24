@@ -1,0 +1,12 @@
+p
+  | #{@user.contact_name}様よりFilmsにお問い合わせがありました。<br>
+    内容は以下です。
+
+hr
+ul style="list-style-type: none; padding: 0;"
+  li お名前 : #{@user.contact_name}
+  li メールアドレス : #{@user.contact_email}
+  li お問い合わせ内容 :<br>#{@user.body}
+hr
+
+p © 2018 Films
