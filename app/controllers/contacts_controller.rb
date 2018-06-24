@@ -5,7 +5,6 @@ class ContactsController < ApplicationController
 
   def confirm
     @contact = Contact.new(contact_params)
-    @contact.user_id = @current_user.id
 
     # 内容に問題がなければ確認画面を表示する
     if @contact.valid?
@@ -18,7 +17,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.user_id = @current_user.id
 
     if @contact.save
       redirect_to contacts_complete_path

@@ -1,6 +1,4 @@
 class Contact < ApplicationRecord
-  belongs_to :user
-
   validates :contact_name,
     presence: true,
     length: { maximum: 255 }

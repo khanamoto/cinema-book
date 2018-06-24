@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_095906) do
+ActiveRecord::Schema.define(version: 2018_06_24_054142) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "film_id"
@@ -23,13 +23,11 @@ ActiveRecord::Schema.define(version: 2018_06_20_095906) do
   end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "contact_name", null: false
     t.string "contact_email", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "film_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,7 +94,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_095906) do
 
   add_foreign_key "comments", "films"
   add_foreign_key "comments", "users"
-  add_foreign_key "contacts", "users"
   add_foreign_key "film_tags", "films"
   add_foreign_key "film_tags", "tags"
   add_foreign_key "films", "users"
