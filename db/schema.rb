@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_24_054142) do
+ActiveRecord::Schema.define(version: 2018_06_25_134721) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "film_id"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2018_06_24_054142) do
     t.boolean "agree", null: false
     t.text "profile"
     t.string "user_image"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
