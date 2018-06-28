@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   # get ':user_name/:id' => 'users#show'
 
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
   resources :timeline do
     get 'page/:page', action: :index, on: :collection
   end

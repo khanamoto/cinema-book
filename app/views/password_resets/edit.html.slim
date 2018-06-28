@@ -1,0 +1,25 @@
+.users.users-edit
+  .row
+    .col-md.col-lg-8.offset-lg-2
+      .card.bg-light.px-3.py-5.p-md-5
+        section.text-center
+          h2 パスワード再設定
+
+          = form_with model: @user, url: password_reset_path(params[:id]), local: true do |form|
+            .users__main__wrapper.mb-5
+
+              - if @user.errors.any?
+                .error_explanation.mb-3
+                  ul
+                    - @user.errors.full_messages.each do |message|
+                      li = message
+
+              = hidden_field_tag :email, @user.email
+
+              .form-group
+                = form.password_field :password, class: 'form-control mb-2', placeholder: 'パスワード'
+              .form-group
+                = form.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワード（確認）'
+
+            .text-center
+              button.btn.btn-primary type='submit' 再設定する

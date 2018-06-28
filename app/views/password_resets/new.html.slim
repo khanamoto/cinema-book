@@ -1,0 +1,24 @@
+.users.users-edit
+  .row
+    .col-md.col-lg-8.offset-lg-2
+      .card.bg-light.px-3.py-5.p-md-5
+        section.text-center
+          h2 パスワード再設定
+          P
+            | ログインパスワード再設定用のメールをお送りいたしますので、<br>
+              登録されているメールアドレスを入力してください。
+
+          - if flash[:danger]
+            p.alert-danger.p-2
+              = flash[:danger]
+          - elsif flash[:info]
+            p.alert-success.p-2
+              = flash[:info]
+
+          = form_with scope: :password_reset, url: password_resets_path, local: true do |form|
+            .users__main__wrapper.mb-5
+              .form-group
+                = form.text_field :email, class: 'form-control', placeholder: 'メールアドレス', type: 'email', required: true
+
+            .text-center
+              button.btn.btn-primary type='submit' 送信する
