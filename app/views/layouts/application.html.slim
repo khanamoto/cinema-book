@@ -52,6 +52,8 @@ html
         .global-footer__nav
           ul.navbar-nav.flex-md-row.mb-4
             li.nav-item.mr-md-3
+              = link_to 'トップページ', root_path, class: 'nav-link'
+            li.nav-item.mr-md-3
               = link_to 'お問い合わせ', contacts_path, class: 'nav-link'
             li.nav-item.mr-md-3
               = link_to 'プライバシーポリシー', privacy_path, class: 'nav-link'
