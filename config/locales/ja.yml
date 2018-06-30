@@ -217,6 +217,7 @@ ja:
     password_confirmation: 確認用パスワード
     agree: 利用規約
     film_image: 作品画像
+    profile: プロフィール
   views:
     pagination:
       first: "&laquo;"

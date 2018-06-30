@@ -11,22 +11,22 @@
             = user.profile_name
           .user-info__username
             = user.user_name
-      p.card-text = truncate(user.profile, length: 50)
+      p.card-text = user.profile
       - if user.id == @current_user.id
-        .clearfix.mb-4
+        .clearfix
           = link_to 'プロフィール編集', edit_user_path(@current_user), class: 'btn btn-outline-primary btn-sm float-right', role: 'button'
 
-      ul.d-flex.justify-content-around.list-unstyled
-        li.d-flex.flex-column.align-items-center
-          div 4
-          small コメント
-        li.d-flex.flex-column.align-items-center
-          div 3
-          small いいね
-      ul.d-flex.justify-content-around.list-unstyled
-        li.d-flex.flex-column.align-items-center
-          div 10
-          small フォロー
-        li.d-flex.flex-column.align-items-center
-          div 500
-          small フォロワー
+      / ul.d-flex.justify-content-around.list-unstyled
+      /   li.d-flex.flex-column.align-items-center
+      /     div 4
+      /     small コメント
+      /   li.d-flex.flex-column.align-items-center
+      /     div 3
+      /     small いいね
+      / ul.d-flex.justify-content-around.list-unstyled
+      /   li.d-flex.flex-column.align-items-center
+      /     div 10
+      /     small フォロー
+      /   li.d-flex.flex-column.align-items-center
+      /     div 500
+      /     small フォロワー

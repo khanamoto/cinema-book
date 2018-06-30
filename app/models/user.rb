@@ -37,6 +37,9 @@ class User < ApplicationRecord
   validates :agree,
     acceptance: { on: :create }
 
+  validates :profile,
+    length: { maximum: 160 }
+
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

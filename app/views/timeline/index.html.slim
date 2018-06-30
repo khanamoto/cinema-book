@@ -11,7 +11,7 @@
                 = image_tag film.user.user_image.user_image_thumb.url, class: 'temp-image'
               - else
                 = image_tag 'default.svg', class: 'temp-image'
-            .media-body
+            .media-body.mr-3
               .user-info__profilename
                 = film.user.profile_name
               .user-info__username
@@ -19,7 +19,7 @@
                   = film.user.user_name
             - if film.user_id == @current_user.id
               = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
-                = icon('fas', 'ellipsis-h')
+                = icon('fas', 'trash')
           = link_to film, class: 'card-img-top'
             = image_tag film.film_image.url if film.film_image?
           .card-body
@@ -29,4 +29,4 @@
 
       = paginate @films, window: 2
 
-    = render 'side_ad'
+    / = render 'side_ad'
