@@ -2,9 +2,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # ストレージの設定
-  storage :file
-  # S3用
-  # storage :fog
+  if Rails.env.production?
+    # 本番環境ではS3に画像を保存する
+    storage :fog
+  else
+    # 本番環境以外ではローカルに画像を保存する
+    storage :file
+  end
 
   # 大きい画像を自動リサイズする
   process resize_to_fit: [500, 500]
