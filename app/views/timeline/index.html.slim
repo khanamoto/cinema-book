@@ -8,7 +8,7 @@
           header.films__header.card-header.media.align-items-center
             = link_to user_path(film.user)
               - if film.user.user_image?
-                = image_tag film.user.user_image.user_image_thumb.url, class: 'temp-image'
+                = image_tag film.user.user_image.url, class: 'temp-image'
               - else
                 = image_tag 'default.svg', class: 'temp-image'
             .media-body.mr-3

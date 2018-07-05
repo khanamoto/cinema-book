@@ -13,9 +13,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # 大きい画像を自動リサイズする
   process resize_to_fit: [500, 500]
   # プロフィール画像のリサイズ
-  version :user_image_thumb do
-    process resize_to_fit: [140, 140]
-  end
+  # version :user_image_thumb do
+  #   process resize_to_fit: [140, 140]
+  # end
 
   # 保存ディレクトリを指定する
   def store_dir

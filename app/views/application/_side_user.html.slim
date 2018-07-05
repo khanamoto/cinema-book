@@ -3,7 +3,7 @@
     .card-body
       .media.mb-2.align-items-center
         - if user.user_image?
-          = image_tag user.user_image.user_image_thumb.url, class: 'temp-image'
+          = image_tag user.user_image.url, class: 'temp-image'
         - else
           = image_tag 'default.svg', class: 'temp-image'
         .media-body
