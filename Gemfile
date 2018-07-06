@@ -50,6 +50,8 @@ group :production do
   gem 'unicorn'
   # 画像S3連携
   gem 'fog-aws'
+  # S3から静的ファイルを配信する
+  gem "asset_sync"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
