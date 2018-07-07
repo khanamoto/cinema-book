@@ -47,6 +47,11 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    asset_sync (2.4.0)
+      activemodel (>= 4.1.0)
+      fog-core
+      mime-types (>= 2.99)
+      unf
     autoprefixer-rails (8.4.1)
       execjs
     bcrypt (3.1.11)
@@ -260,6 +265,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     unicorn (5.4.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -278,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  asset_sync
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap
