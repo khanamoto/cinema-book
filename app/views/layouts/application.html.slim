@@ -9,10 +9,10 @@ html
     header.global-header.navbar.navbar-light.bg-light
       .container
         h1
-          = link_to '/', class: 'navbar-brand'
+          = link_to root_path, class: 'navbar-brand'
             = image_tag 'films_logo.svg', class: 'logo-image', alt: 'Films'
 
-        - unless @current_user.nil?
+        - if @current_user.present?
           .global-header__nav
             ul.navbar-nav.flex-row.justify-content-end
               li.nav-item.mr-3
@@ -32,9 +32,9 @@ html
                   = icon('fas', 'sign-out-alt', class: 'pr-md-1')
                   span.d-none.d-md-inline ログアウト
 
-      - unless @current_user.nil?
+      - if @current_user.present?
         .container
-          = form_with url: '/', method: :get, class: 'global-header__search form-inline justify-content-end w-100 mb-2', local: true, skip_enforcing_utf8: true do |form|
+          = form_with url: root_path, method: :get, class: 'global-header__search form-inline justify-content-end w-100 mb-2', local: true, skip_enforcing_utf8: true do |form|
             = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
             button.btn.btn-outline-success type='submit'
               = icon('fas', 'search')
@@ -54,6 +54,10 @@ html
               = link_to 'お問い合わせ', contacts_path, class: 'nav-link'
             li.nav-item.mr-md-3
               = link_to 'プライバシーポリシー', privacy_path, class: 'nav-link'
-            li.nav-item
+            li.nav-item.mr-md-3
               = link_to '利用規約', terms_path, class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'アカウント登録', new_registration_path, class: 'nav-link'
+            li.nav-item.mr-md-3
+              = link_to 'ログイン', sessions_new_path, class: 'nav-link'
         .copyright © 2018 Films

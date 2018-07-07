@@ -1,32 +1,67 @@
 .timeline.films-index
   .row
-    = render partial: 'side_user', locals: { user: @current_user }
+    - if @current_user.present?
+      = render partial: 'side_user', locals: { user: @current_user }
 
-    .col-12.col-md-8.col-lg-6
-      - @films.each do |film|
-        .card.mb-4
-          header.films__header.card-header.media.align-items-center
-            = link_to user_path(film.user)
-              - if film.user.user_image?
-                = image_tag film.user.user_image.url, class: 'temp-image'
-              - else
-                = image_tag 'default.svg', class: 'temp-image'
-            .media-body.mr-3
-              .user-info__profilename
-                = film.user.profile_name
-              .user-info__username
-                = link_to user_path(film.user)
-                  = film.user.user_name
-            - if film.user_id == @current_user.id
-              = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
-                = icon('fas', 'trash')
-          = link_to film, class: 'card-img-top'
-            = image_tag film.film_image.url if film.film_image?
-          .card-body
-            h2.card-title = link_to film.title, film
-            p.card-text = truncate(film.comment, length: 100)
-            small.text-muted = film.created_at.strftime('%Y-%m-%d')
+    - if @current_user.present?
+      .col-12.col-md-8.col-lg-6
+        - @films.each do |film|
+          .card.mb-4
+            header.films__header.card-header.media.align-items-center
+              = link_to user_path(film.user)
+                - if film.user.user_image?
+                  = image_tag film.user.user_image.url, class: 'temp-image'
+                - else
+                  = image_tag 'default.svg', class: 'temp-image'
+              .media-body.mr-3
+                .user-info__profilename
+                  = film.user.profile_name
+                .user-info__username
+                  = link_to user_path(film.user)
+                    = film.user.user_name
+              - if @current_user.present? && film.user_id == @current_user.id
+                = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
+                  = icon('fas', 'trash')
+            = link_to film, class: 'card-img-top'
+              = image_tag film.film_image.url if film.film_image?
+            .card-body
+              h2.card-title = link_to film.title, film
+              p.card-text = truncate(film.comment, length: 100)
+              small.text-muted = film.created_at.strftime('%Y-%m-%d')
 
-      = paginate @films, window: 2
+        = paginate @films, window: 2
+
+    - else
+      .col-12.col-lg-8.offset-lg-2
+        = form_with url: root_path, method: :get, class: 'global-header__search form-inline justify-content-end w-100 mb-4', local: true, skip_enforcing_utf8: true do |form|
+          = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
+          button.btn.btn-outline-success type='submit'
+            = icon('fas', 'search')
+
+        - @films.each do |film|
+          .card.mb-4
+            header.films__header.card-header.media.align-items-center
+              = link_to user_path(film.user)
+                - if film.user.user_image?
+                  = image_tag film.user.user_image.url, class: 'temp-image'
+                - else
+                  = image_tag 'default.svg', class: 'temp-image'
+              .media-body.mr-3
+                .user-info__profilename
+                  = film.user.profile_name
+                .user-info__username
+                  = link_to user_path(film.user)
+                    = film.user.user_name
+              - if @current_user.present? && film.user_id == @current_user.id
+                = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
+                  = icon('fas', 'trash')
+            = link_to film, class: 'card-img-top'
+              = image_tag film.film_image.url if film.film_image?
+            .card-body
+              h2.card-title = link_to film.title, film
+              p.card-text = truncate(film.comment, length: 100)
+              small.text-muted = film.created_at.strftime('%Y-%m-%d')
+
+        = paginate @films, window: 2
 
     / = render 'side_ad'

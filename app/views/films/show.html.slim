@@ -16,7 +16,7 @@
             .user-info__username
               = link_to user_path(@film.user)
                 = @film.user.user_name
-          - if @film.user_id == @current_user.id
+          - if @current_user.present? && @film.user_id == @current_user.id
             = link_to film_path(@film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
               = icon('fas', 'trash')
 
