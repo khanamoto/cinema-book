@@ -82,6 +82,15 @@
           = link_to 'こちら', contacts_path, target: '_blank', rel: 'noopener noreferrer'
           | からお願いいたします。
 
+        section.card-body
+          h4.card-title アクセス解析ツールについて
+          p.card-text
+            | 当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。<br>
+            | このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。この規約に関して、詳しくは
+            |
+            = link_to 'ここをクリック', 'https://www.google.com/analytics/terms/jp.html', target: '_blank', rel: 'noopener noreferrer'
+            | してください。
+
         / section.card-body
         /   h4.card-title 広告の配信について
         /   p.card-text
@@ -89,12 +98,3 @@
         /     | Cookie（クッキー）を無効にする設定およびGoogleアドセンスに関する詳細は
         /     = link_to '「広告 – ポリシーと規約 – Google」', 'https://policies.google.com/technologies/ads?hl=ja', target: '_blank', rel: 'noopener noreferrer'
         /     | をご覧ください。
-
-        / section.card-body
-        /   h4.card-title アクセス解析ツールについて
-        /   p.card-text
-        /     | 当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。<br>
-        /     | このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。この規約に関して、詳しくは
-        /     |
-        /     = link_to 'ここをクリック', 'https://www.google.com/analytics/terms/jp.html', target: '_blank', rel: 'noopener noreferrer'
-        /     | してください。
