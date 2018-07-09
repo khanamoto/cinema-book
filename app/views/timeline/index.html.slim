@@ -33,7 +33,7 @@
 
     - else
       .col-12.col-lg-8.offset-lg-2
-        = form_with url: root_path, method: :get, class: 'global-header__search form-inline justify-content-end w-100 mb-4', local: true, skip_enforcing_utf8: true do |form|
+        = form_with url: root_path, method: :get, class: 'timeline__search form-inline justify-content-center w-100 mb-4', local: true, skip_enforcing_utf8: true do |form|
           = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
           button.btn.btn-outline-success type='submit'
             = icon('fas', 'search')
