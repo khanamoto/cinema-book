@@ -47,7 +47,7 @@ class FilmsController < ApplicationController
   end
 
   def film_params
-    params.require(:film).permit(:title, :staff, :comment, :favorite_scene, :cinema, :watch_day, :film_image)#, tags_attributes: [:tag_name])
+    params.require(:film).permit(:title, :staff, :comment, :cinema, :watch_day)#, tags_attributes: [:tag_name])
   end
 
   def correct_user

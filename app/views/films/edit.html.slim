@@ -33,13 +33,9 @@
                 .col-md-9
                   = form.text_area :staff, class: 'form-control'
               .form-group.row
-                = form.label :comment, 'コメント', class: 'col-md-3 col-form-label'
+                = form.label :comment, 'ヒトコト！ *', class: 'col-md-3 col-form-label'
                 .col-md-9
-                  = form.text_area :comment, class: 'form-control'
-              .form-group.row
-                = form.label :favorite_scene, 'お気に入りシーン', class: 'col-md-3 col-form-label'
-                .col-md-9
-                  = form.text_area :favorite_scene, class: 'form-control'
+                  = form.text_area :comment, class: 'form-control', placeholder: '10~200文字で入力してください', required: true
               / .form-group.row
               /   = form.label :tag_name, 'タグ', class: 'col-md-3 col-form-label'
               /   .col-md-9
@@ -53,10 +49,6 @@
                 = form.label :watch_day, '鑑賞した日', class: 'col-md-3 col-form-label'
                 .col-md-9
                   = form.date_select :watch_day, class: 'form-control', use_month_numbers: true, start_year: Time.now.year - 100, end_year: Time.now.year
-              .form-group.row
-                = form.label :film_image, '画像登録', class: 'col-md-3 col-form-label'
-                .col-md-9
-                  = form.file_field :film_image, class: 'form-control-file', id: 'File'
 
             .text-center
               button.btn.btn-primary type='submit' 更新する

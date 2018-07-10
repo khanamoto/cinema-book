@@ -21,18 +21,13 @@
               = icon('fas', 'trash')
 
         .card-body
-          = image_tag @film.film_image.url if @film.film_image?
-
           h2 = @film.title
 
           h3 監督、出演者など
           p = @film.staff
 
-          h3 コメント
+          h3 ヒトコト！
           p = @film.comment
-
-          h3 お気に入りシーン
-          p = @film.favorite_scene
 
           h3 鑑賞した日
           p = @film.watch_day
