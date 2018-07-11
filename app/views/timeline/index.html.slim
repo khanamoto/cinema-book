@@ -23,8 +23,8 @@
                 = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
                   = icon('fas', 'trash')
             .card-body
-              h2.card-title = link_to film.title, film
-              p.card-text = truncate(film.comment, length: 100)
+              h2.card-title.film-title = link_to truncate(film.title, length: 36), film
+              p.card-text.film-text = truncate(film.comment, length: 70)
               small.text-muted = film.created_at.strftime('%Y-%m-%d')
 
         = paginate @films, window: 2
@@ -54,8 +54,8 @@
                 = link_to film_path(film), method: :delete, data: { confirm: 'この映画を削除していいですか？' } do
                   = icon('fas', 'trash')
             .card-body
-              h2.card-title = link_to film.title, film
-              p.card-text = truncate(film.comment, length: 100)
+              h2.card-title.film-title = link_to truncate(film.title, length: 36), film
+              p.card-text.film-text = truncate(film.comment, length: 70)
               small.text-muted = film.created_at.strftime('%Y-%m-%d')
 
         = paginate @films, window: 2

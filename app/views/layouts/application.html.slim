@@ -6,7 +6,7 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header.global-header.navbar.navbar-light.bg-light
+    header.global-header.navbar
       .container
         h1
           = link_to root_path, class: 'navbar-brand'
@@ -44,7 +44,7 @@ html
     .container.py-4
       = yield
 
-    footer.global-footer.navbar-light.bg-light
+    footer.global-footer
       .container.pt-4.pb-2.pt-md-2
         .global-footer__nav
           ul.navbar-nav.flex-md-row.mb-4

@@ -6,6 +6,8 @@
 // ヘッダー ---------------------
 // 共通（極小サイズ）
 .global-header {
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
   .container {
     padding: 0;
   }
@@ -58,8 +60,11 @@
     }
     &__nav {
       ul{
-        i {
-          font-size: inherit;
+        a {
+          text-decoration: underline;
+          i {
+            font-size: inherit;
+          }
         }
       }
     }
@@ -96,6 +101,7 @@
 
   // タブレットサイズ（768px以上）
   @include media-breakpoint-up(md) {
+    border-top: 1px solid #e7e7e7;
     &__nav {
       ul {
         li {
@@ -132,6 +138,13 @@
     }
   }
 
+  .card-title {
+    font-size: 1.625rem;
+  }
+  .card-text {
+    font-size: .875rem;
+  }
+
   // 横向きモバイル、ファブレットサイズ（576px以上）
   @include media-breakpoint-up(sm) {
   }
@@ -160,17 +173,49 @@
 
 // 横向きモバイル、ファブレットサイズ（576px以上）
 @include media-breakpoint-up(sm) {
+  .film-title {
+    font-size: 1.625rem;
+  }
+  .film-text {
+    font-size: .875rem;
+  }
 }
 
 // タブレットサイズ（768px以上）
 @include media-breakpoint-up(md) {
+  .film-title {
+    font-size: 3.125rem;
+  }
+  .film-text {
+    font-size: 1.25rem;
+  }
 }
 
 // PCサイズ（992px以上）
 @include media-breakpoint-up(lg) {
 }
 
+// 大画面サイズ（1140px以上）
+@include media-breakpoint-up(xl) {
+  .film-title {
+    font-size: 3.75rem;
+  }
+  .film-text {
+    font-size: 1.375rem;
+  }
+
+}
+
 // Bootstrap拡張 ---------------
+.card {
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 1px 7px rgba(0,0,0,.05);
+}
+.card-header {
+  background: none;
+  border-bottom-color: #e7e7e7;
+}
 .media-body {
   word-break: break-all;
 }

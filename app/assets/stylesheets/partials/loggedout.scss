@@ -1,5 +1,5 @@
 // 共通（極小サイズ）
-.registrations {
+.loggedout {
   font-size: .875rem;
   text-align: center;
   &__description {
@@ -40,6 +40,11 @@
       padding: .75rem 4rem;
     }
   }
+  &__note {
+    a {
+      text-decoration: underline;
+    }
+  }
 
   // 横向きモバイル、ファブレットサイズ（576px以上）
   @include media-breakpoint-up(sm) {
@@ -60,6 +65,11 @@
     }
     &__note {
       font-size: .875rem;
+    }
+
+    // リセット
+    .global-footer {
+      border: 0;
     }
   }
 

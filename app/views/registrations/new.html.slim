@@ -1,16 +1,16 @@
 - @page_title = Settings.registrations.meta.title
 
-.registrations
-  section.registrations__description.my-4
+.loggedout
+  section.loggedout__description.my-4
     = image_tag 'films_logo.svg', class: 'logo-image'
     h1
       = image_tag 'films_logo_text.svg', class: 'logo-font' ,alt: 'Films'
-    p.registrations__description__text ~見た映画を記録してシェアしよう！~
+    p.loggedout__description__text ~見た映画を記録してシェアしよう！~
 
   .row.mb-3
     .col-md-8.offset-md-2.col-lg-6.offset-lg-3
-      .card.bg-light.px-3.py-5.p-md-5
-        = form_with model: @user, url: registrations_path, class: 'registrations__form', local: true do |form|
+      .card.px-3.py-5.p-md-5
+        = form_with model: @user, url: registrations_path, class: 'loggedout__form', local: true do |form|
           h2.mb-3 アカウント登録
 
           - if @user.errors.any?
@@ -34,6 +34,6 @@
 
           button.btn.btn-primary type='submit' 登録する
 
-  p.registrations__note
+  p.loggedout__note
     | アカウントをお持ちの方はこちら
     = link_to 'ログイン', sessions_new_path, class: 'pl-1'
