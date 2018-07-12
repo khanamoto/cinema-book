@@ -12,9 +12,9 @@ html
           = link_to root_path, class: 'navbar-brand'
             = image_tag 'films_logo.svg', class: 'logo-image', alt: 'Films'
 
-        - if @current_user.present?
-          .global-header__nav
-            ul.navbar-nav.flex-row.justify-content-end
+        .global-header__nav
+          ul.navbar-nav.flex-row.justify-content-end
+            - if @current_user.present?
               li.nav-item.mr-3
                 = link_to user_path(@current_user), class: 'nav-link' do
                   = icon('fas', 'user', class: 'pr-md-1')
@@ -31,6 +31,11 @@ html
                 = link_to logout_path, class: 'nav-link', method: :delete do
                   = icon('fas', 'sign-out-alt', class: 'pr-md-1')
                   span.d-none.d-md-inline ログアウト
+            - else
+              li.nav-item
+                = link_to sessions_new_path, class: 'nav-link' do
+                  = icon('fas', 'sign-in-alt', class: 'pr-md-1')
+                  span.d-none.d-md-inline ログイン
 
       - if @current_user.present?
         .container
