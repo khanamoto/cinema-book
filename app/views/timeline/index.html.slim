@@ -5,6 +5,17 @@
 
     - if @current_user.present?
       .col-12.col-md-8.col-lg-6
+        - if params[:search].present?
+          p
+            span.font-weight-bold
+              | "
+              = params[:search]
+              | "
+            | を含む映画
+            span.pl-2
+              = @films_count
+              | 件
+
         - @films.each do |film|
           .card.mb-4
             header.films__header.card-header.media.align-items-center
@@ -35,6 +46,17 @@
           = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
           button.btn.btn-outline-success type='submit'
             = icon('fas', 'search')
+
+        - if params[:search].present?
+          p.text-center
+            span.font-weight-bold
+              | "
+              = params[:search]
+              | "
+            | を含む映画
+            span.pl-2
+              = @films_count
+              | 件
 
         - @films.each do |film|
           .card.mb-4
