@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :registrations
-  resources :films
+  resources :registrations, only: [ :new, :create ]
+  resources :films, only: [ :new, :create, :show, :edit, :update, :destroy ]
 
-  resources :users do
+  resources :users, only: [ :show, :edit, :update, :destroy ] do
     member do
       get :password
       patch :change_password
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:new, :create, :edit, :update]
 
-  resources :timeline do
+  resources :timeline, only: [ :index ] do
     get 'page/:page', action: :index, on: :collection
   end
 
