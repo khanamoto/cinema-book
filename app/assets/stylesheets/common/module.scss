@@ -171,23 +171,22 @@
   }
 }
 
+.film-title {
+  font-weight: bold;
+  font-size: 1.875rem;
+}
+
 // 横向きモバイル、ファブレットサイズ（576px以上）
 @include media-breakpoint-up(sm) {
-  .film-title {
-    font-size: 1.625rem;
-  }
-  .film-text {
-    font-size: .875rem;
-  }
 }
 
 // タブレットサイズ（768px以上）
 @include media-breakpoint-up(md) {
   .film-title {
-    font-size: 3.125rem;
+    font-size: 2.25rem;
   }
   .film-text {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -198,12 +197,8 @@
 // 大画面サイズ（1140px以上）
 @include media-breakpoint-up(xl) {
   .film-title {
-    font-size: 3.75rem;
+    // font-size: 3.75rem;
   }
-  .film-text {
-    font-size: 1.375rem;
-  }
-
 }
 
 // Bootstrap拡張 ---------------

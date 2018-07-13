@@ -21,12 +21,12 @@
               = icon('fas', 'trash')
 
         .card-body
-          h2 = @film.title
+          h2.film-title = @film.title
 
           h3 監督、出演者など
           p = @film.staff
 
-          h3 ヒトコト！
+          h3 コメント
           p = @film.comment
 
           h3 鑑賞した日

@@ -22,7 +22,9 @@
                 = icon('fas', 'trash')
           .card-body
             h2.card-title.film-title = link_to truncate(film.title, length: 36), film
-            p.card-text.film-text = truncate(film.comment, length: 100)
+            p.card-text.film-text
+              = truncate(film.comment, length: 400) do
+                small.pl-2 = link_to '続きを読む', film
             small.text-muted = film.created_at.strftime('%Y-%m-%d')
           / ul
           /   li

@@ -18,7 +18,7 @@ class Film < ApplicationRecord
 
   validates :comment,
     presence: true,
-    length: { in: 10..200 }
+    length: { maximum: 1000 }
 
   validates :cinema,
     length: { maximum: 100 }
