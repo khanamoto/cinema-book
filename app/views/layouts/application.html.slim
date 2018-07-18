@@ -6,12 +6,11 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header.global-header.navbar
+    header.global-header.navbar.py-3
       .container
-        h1
-          = link_to root_path, class: 'navbar-brand'
-            = image_tag 'films_logo.svg', class: 'logo-image', alt: 'Filmsロゴ'
-            = image_tag 'films_logo_text.svg', class: 'logo-image-text ml-2 ml-md-3', alt: 'Films'
+        h1.navbar-brand.mb-0
+          = link_to root_path
+            = image_tag 'films_logo_text.svg', class: 'logo-image-text', alt: 'Films'
 
         .global-header__nav
           ul.navbar-nav.flex-row.justify-content-end
@@ -39,7 +38,7 @@ html
                   span.d-none.d-md-inline ログイン
 
       - if @current_user.present?
-        .container
+        .container.mt-2
           = form_with url: root_path, method: :get, class: 'global-header__search form-inline justify-content-end w-100 mb-2', local: true, skip_enforcing_utf8: true do |form|
             = form.text_field :search, class: 'form-control', placeholder: '映画検索', 'aria-label': '映画検索'
             button.btn.btn-outline-success type='submit'
