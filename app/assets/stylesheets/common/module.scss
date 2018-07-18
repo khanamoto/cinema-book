@@ -14,6 +14,9 @@
   .logo-image {
     width: 30px;
   }
+  .logo-image-text {
+    width: 80px;
+  }
   &__search {
     position: relative;
     .form-control {
@@ -52,6 +55,9 @@
   @include media-breakpoint-up(md) {
     .logo-image {
       width: 50px;
+    }
+    .logo-image-text {
+      width: 110px;
     }
     &__search {
       .form-control {
