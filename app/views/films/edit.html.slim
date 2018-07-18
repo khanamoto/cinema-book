@@ -35,7 +35,7 @@
               .form-group.row
                 = form.label :comment, 'コメント *', class: 'col-md-3 col-form-label'
                 .col-md-9
-                  = form.text_area :comment, class: 'form-control', placeholder: '1000文字まで入力できます', required: true
+                  = form.text_area :comment, class: 'form-control', rows: 10, placeholder: '1000文字まで入力できます', required: true
               / .form-group.row
               /   = form.label :tag_name, 'タグ', class: 'col-md-3 col-form-label'
               /   .col-md-9
