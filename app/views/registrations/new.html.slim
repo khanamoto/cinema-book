@@ -20,7 +20,7 @@
                   li = message
 
           .form-group
-            = form.text_field :user_name, class: 'form-control mb-2', placeholder: 'ユーザー名', required: true
+            = form.text_field :user_name, class: 'form-control mb-2', placeholder: 'ユーザー名（英数字2~100文字）', required: true
             = form.text_field :email, class: 'form-control mb-2', placeholder: 'メールアドレス', type: 'email', required: true
             = form.password_field :password, class: 'form-control mb-2', placeholder: 'パスワード', required: true
             = form.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワード（確認）', required: true
