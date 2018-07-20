@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
+
   # before_action :basic_auth
   before_action :set_current_user
 

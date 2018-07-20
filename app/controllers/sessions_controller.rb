@@ -10,11 +10,17 @@ class SessionsController < ApplicationController
   # /login
   def create
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password]) then
+    if user && user.authenticate(params[:password])
+      if user.activated?
       reset_session
-      session[:user] = user.id
+      log_in user
       # 隠しフィールドにセットしたページへ
       redirect_to params[:referer]
+    else
+        message = 'アカウントが有効化されていません。Filmsからお送りしたメールを確認し、アカウントを有効化してください'
+        flash[:warning] = message
+        redirect_to sessions_new_url
+      end
     else
       # 失敗した場合は、flash[:referer]を再セット
       flash.now[:referer] = params[:referer]

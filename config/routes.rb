@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   # get ':user_name/:id' => 'users#show'
 
+  resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :timeline, only: [ :index ] do

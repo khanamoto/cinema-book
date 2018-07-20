@@ -13,7 +13,11 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to :root
+      # モデルからメール送信する
+      @user.send_activation_email
+      flash[:info] = 'アカウント有効化のメールをお送りしましたのでご確認ください'
+      log_in @user
+      redirect_to root_url
     else
       render :new
     end

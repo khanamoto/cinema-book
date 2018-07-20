@@ -6,13 +6,15 @@ class User < ApplicationRecord
   has_many :follows
 
   # インスタンス変数の内容を外部から読み書きするため、アクセサメソッドを定義する
-  attr_accessor :reset_token
+  attr_accessor :activation_token, :reset_token
   # 保存前にメールアドレスを小文字に変換する
   before_save { self.email = email.downcase }
   # 暗号化されたパスワード認証を追加する
   has_secure_password
   # 画像アップローダーを指定する
   mount_uploader :user_image, ImageUploader
+  # オブジェクト作成前に有効化ダイジェストを作成する
+  before_create :create_activation_digest
 
   validates :user_name,
     presence: true,
@@ -73,5 +75,23 @@ class User < ApplicationRecord
   # パスワード再設定の期限が切れている場合はtrueを返す
   def password_reset_expired?
     reset_sent_at < 24.hours.ago
+  end
+
+  # アカウントを有効化する
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # 有効化用のメールを送信する
+  def send_activation_email
+    NoticeMailer.account_activation(self).deliver_now
+  end
+
+  private
+  # 有効化トークンとダイジェストを作成および代入する
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end

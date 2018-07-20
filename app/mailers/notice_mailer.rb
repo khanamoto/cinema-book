@@ -11,6 +11,11 @@ class NoticeMailer < ApplicationMailer
     mail to: ENV['EMAIL_MYSELF'], subject: '【Films】お問い合わせがありました'
   end
 
+  def account_activation(user)
+    @user = user
+    mail to: user.email, subject: '【Films】アカウント確認のお知らせ'
+  end
+
   def password_reset(user)
     @user = user
     mail to: user.email, subject: '【Films】パスワード再設定のお知らせ'

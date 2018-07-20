@@ -5,6 +5,16 @@
 
     - if @current_user.present?
       .col-12.col-md-8.col-lg-6
+        - if flash[:info]
+          p.alert-primary.p-2.text-center
+            = flash[:info]
+        - elsif flash[:success]
+          p.alert-success.p-2.text-center
+            = flash[:success]
+        - elsif flash[:danger]
+          p.alert-danger.p-2.text-center
+            = flash[:danger]
+
         - if params[:search].present?
           p
             span.font-weight-bold

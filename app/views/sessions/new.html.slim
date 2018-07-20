@@ -20,6 +20,9 @@ section.loggedout__description.my-4
         - if flash[:success]
           p.alert-success.p-2
             = flash[:success]
+        - elsif flash[:warning]
+          p.alert-warning.p-2
+            = flash[:warning]
 
         .form-group
           = form.text_field :email, class: 'form-control mb-2', placeholder: 'メールアドレス', type: 'email', required: true
