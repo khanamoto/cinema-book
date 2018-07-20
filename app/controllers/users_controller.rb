@@ -25,6 +25,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    reset_session
+    redirect_to new_registration_url
   end
 
   def password
