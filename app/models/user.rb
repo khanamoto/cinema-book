@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :contacts
-  has_many :follows
+  has_many :follows, foreign_key: 'user_id', dependent: :destroy
 
   # インスタンス変数の内容を外部から読み書きするため、アクセサメソッドを定義する
   attr_accessor :activation_token, :reset_token

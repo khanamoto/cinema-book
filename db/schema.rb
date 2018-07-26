@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_072717) do
+ActiveRecord::Schema.define(version: 2018_07_26_094628) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "film_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_072717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follow_id"], name: "index_follows_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_follows_on_user_id_and_follow_id", unique: true
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
