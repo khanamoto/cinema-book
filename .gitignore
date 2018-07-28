@@ -39,6 +39,5 @@ pickle-email-*.html
 /db/mysql
 .env
 # 本番環境のみ
-/spec
 Dockerfile
 docker-compose.yml
