@@ -27,7 +27,7 @@
           p = @film.staff
 
           h3 コメント
-          p = @film.comment
+          p = simple_format h @film.comment
 
           h3 鑑賞した日
           p = @film.watch_day
